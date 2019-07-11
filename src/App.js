@@ -16,6 +16,8 @@ import avengers from './avengersData';
     }
 
   render(){
+
+  const { avenger } = this.state;
   return (
     <div className="App">
     <ul className="navbar">
@@ -29,8 +31,8 @@ import avengers from './avengersData';
     </ul>
     
      <Route exact path="/" component={Home}/>
-     <Route exact path="/avengers" component={AvengersList}/>
-     <Route path="/avengers/:id" component={AvengerPage}/>
+     <Route exact path="/avengers" render={props => <AvengersList {...props} avenger={avenger}/>}/>
+     <Route path="/avengers/:id"   render={props => <AvengerPage {...props} avenger={avenger}/>}/>
     </div>
   );
 }
