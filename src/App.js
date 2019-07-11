@@ -11,13 +11,14 @@ import avengers from './avengersData';
     constructor(){
       super();
       this.state= {
-        evengers: avengers
+        avengers: avengers
       }
     }
 
   render(){
 
-  const { avenger } = this.state;
+    const {avengers} = this.state;
+
   return (
     <div className="App">
     <ul className="navbar">
@@ -31,8 +32,8 @@ import avengers from './avengersData';
     </ul>
     
      <Route exact path="/" component={Home}/>
-     <Route exact path="/avengers" render={props => <AvengersList {...props} avenger={avenger}/>}/>
-     <Route path="/avengers/:id"   render={props => <AvengerPage {...props} avenger={avenger}/>}/>
+     <Route exact path="/avengers" render={props => <AvengersList {...props} avengers={avengers}/>}/>
+     <Route path="/avengers/:id"   render={props => <AvengerPage {...props} avengers={avengers}/>}/>
     </div>
   );
 }
