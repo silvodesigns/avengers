@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 
 
 function AvengerPage(props){
@@ -14,6 +15,10 @@ function AvengerPage(props){
                 <h4>{avenger.nickname}</h4>
                 <p>{avenger.description}</p>
             </div>
+            <Link to={`/avengers/${id}/details`}>Avenger Details</Link>
+            <Link to={`/avengers/${id}/movies`}>Movies</Link>
+            <Route path="/avengers/:id/details" render={props => <p>{avenger.description}</p>}/>
+            <Route path="/avengers/:id/movies"   render={props => <div>Movies List</div>}/>
            
         </div>
     );
